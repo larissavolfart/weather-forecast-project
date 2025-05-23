@@ -7,7 +7,7 @@ document.querySelector('#search').addEventListener('submit', async (event) => {
         return showAlert('Você precisa digitar uma cidade.')
     }
     
-    const apiUrl = `http://localhost:3000/weather?city=${encodeURIComponent(cityName)}`;
+    const apiUrl = `https://weather-backend-xa86.onrender.com/weather?city=${encodeURIComponent(cityName)}`;
 
     const results = await fetch(apiUrl);
     const json = await results.json();
