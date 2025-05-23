@@ -22,7 +22,7 @@ app.get('/weather', async (req, res) => {
   }
 
   try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${process.env.API_KEY}&units=metric&lang=pt_br`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${process.env.OPENWEATHER_API_KEY}&units=metric&lang=pt_br`);
     const data = await response.json();
 
     if (data.cod !== 200) {
