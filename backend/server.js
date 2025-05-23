@@ -1,5 +1,6 @@
 const express = require('express');
-const fetch = require('node-fetch'); // ou 'undici' se preferir
+const cors = require('cors');
+const fetch = require('node-fetch');
 const path = require('path');
 
 require('dotenv').config();
@@ -7,15 +8,13 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// 1. Serve os arquivos estáticos da pasta frontend
+app.use(cors()); // <- Habilita CORS
 app.use(express.static(path.join(__dirname, '../frontend')));
 
-// 2. Rota principal: serve o arquivo index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
-// 3. Rota da API /weather
 app.get('/weather', async (req, res) => {
   const city = req.query.city;
   if (!city) {
