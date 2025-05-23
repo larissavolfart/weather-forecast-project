@@ -7,12 +7,10 @@ document.querySelector('#search').addEventListener('submit', async (event) => {
         return showAlert('Você precisa digitar uma cidade.')
     }
     
-    const apiKey = '7471b94ea021f5fcf3be94b6c3ae19c0'
-    const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURI(cityName)}&appid=${apiKey}&units=metric&lang=pt_br`
+    const apiUrl = `http://localhost:3000/weather?city=${encodeURIComponent(cityName)}`;
 
     const results = await fetch(apiUrl);
     const json = await results.json();
-    console.log(json)
 
     if (json.cod === 200) {
         showInfo({
