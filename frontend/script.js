@@ -7,7 +7,7 @@ document.querySelector('#search').addEventListener('submit', async (event) => {
         return showAlert('Você precisa digitar uma cidade.')
     }
     
-    const apiUrl = `https://weather-backend-xa86.onrender.com/weather?city=${encodeURIComponent(cityName)}`;
+//    const apiUrl = `https://weather-backend-xa86.onrender.com/weather?city=${encodeURIComponent(cityName)}`; //(essa parte esta comentada pq sei que vou ter que trocar de acordo com o backend)
 
     const results = await fetch(apiUrl);
     const json = await results.json();
